@@ -17,6 +17,12 @@ import endingLastWitness from '@/assets/audio/ending-last-witness.mp3'
 import endingSurvivor from '@/assets/audio/ending-survivor.mp3'
 import endingMissing from '@/assets/audio/ending-missing.mp3'
 import endingForbidden from '@/assets/audio/ending-forbidden.mp3'
+import screamClose from '@/assets/audio/scream-close.mp3'
+import screamDistant from '@/assets/audio/scream-distant.mp3'
+import breathPanic from '@/assets/audio/breath-panic.mp3'
+import stingCrime from '@/assets/audio/sting-crime.mp3'
+import heartStop from '@/assets/audio/heart-stop.mp3'
+import doorScream from '@/assets/audio/door-scream.mp3'
 
 export type SoundId =
   | 'ambience-room'
@@ -35,6 +41,12 @@ export type SoundId =
   | 'ending-survivor'
   | 'ending-missing'
   | 'ending-forbidden'
+  | 'scream-close'
+  | 'scream-distant'
+  | 'breath-panic'
+  | 'sting-crime'
+  | 'heart-stop'
+  | 'door-scream'
 
 /** Base mix levels — deliberately conservative, nothing jumps over 0.85. */
 const SOURCES: Record<SoundId, { src: string; volume: number; loop: boolean; soften?: number }> = {
@@ -54,6 +66,13 @@ const SOURCES: Record<SoundId, { src: string; volume: number; loop: boolean; sof
   'ending-survivor': { src: endingSurvivor, volume: 0.4, loop: false },
   'ending-missing': { src: endingMissing, volume: 0.4, loop: false },
   'ending-forbidden': { src: endingForbidden, volume: 0.42, loop: false },
+  /* ---- the new horror layer: synthesised from scratch, 48 kHz / 320 kbps ---- */
+  'scream-close': { src: screamClose, volume: 0.46, loop: false, soften: 0.24 },
+  'scream-distant': { src: screamDistant, volume: 0.4, loop: false, soften: 0.26 },
+  'breath-panic': { src: breathPanic, volume: 0.32, loop: false, soften: 0.22 },
+  'sting-crime': { src: stingCrime, volume: 0.48, loop: false, soften: 0.2 },
+  'heart-stop': { src: heartStop, volume: 0.42, loop: false, soften: 0.3 },
+  'door-scream': { src: doorScream, volume: 0.44, loop: false, soften: 0.2 },
 }
 
 class AudioEngine {

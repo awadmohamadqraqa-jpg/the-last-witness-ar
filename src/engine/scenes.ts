@@ -20,6 +20,12 @@ import evCameraFrame from '@/assets/scenes/ev-camera-frame.webp'
 import evCameraFrameSm from '@/assets/scenes/ev-camera-frame-sm.webp'
 import evHandwritten from '@/assets/scenes/ev-handwritten.webp'
 import evHandwrittenSm from '@/assets/scenes/ev-handwritten-sm.webp'
+import crimeScene from '@/assets/scenes/crime-scene.webp'
+import crimeSceneSm from '@/assets/scenes/crime-scene-sm.webp'
+import screamingFigure from '@/assets/scenes/screaming-figure.webp'
+import screamingFigureSm from '@/assets/scenes/screaming-figure-sm.webp'
+import evidenceWall from '@/assets/scenes/evidence-wall.webp'
+import evidenceWallSm from '@/assets/scenes/evidence-wall-sm.webp'
 
 export const SCENES: Record<SceneKey, { full: string; small: string }> = {
   landing: { full: landing, small: landingSm },
@@ -32,6 +38,9 @@ export const SCENES: Record<SceneKey, { full: string; small: string }> = {
   'ev-missing-report': { full: evMissingReport, small: evMissingReportSm },
   'ev-camera-frame': { full: evCameraFrame, small: evCameraFrameSm },
   'ev-handwritten': { full: evHandwritten, small: evHandwrittenSm },
+  'crime-scene': { full: crimeScene, small: crimeSceneSm },
+  'screaming-figure': { full: screamingFigure, small: screamingFigureSm },
+  'evidence-wall': { full: evidenceWall, small: evidenceWallSm },
 }
 
 const cache = new Map<SceneKey, HTMLImageElement>()

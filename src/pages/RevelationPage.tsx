@@ -50,7 +50,10 @@ export default function RevelationPage() {
     if (index < 0 || done) return
     timer.current = window.setTimeout(() => {
       if (index < beats.length - 1) setIndex((i) => i + 1)
-      else setDone(true)
+      else {
+        setDone(true)
+        audio.play('heart-stop')
+      }
     }, Math.max(4200, beats[index].length * 62))
     return () => {
       if (timer.current) window.clearTimeout(timer.current)
@@ -60,7 +63,10 @@ export default function RevelationPage() {
   const advance = () => {
     if (timer.current) window.clearTimeout(timer.current)
     if (index < beats.length - 1) setIndex((i) => i + 1)
-    else setDone(true)
+    else {
+      setDone(true)
+      audio.play('heart-stop')
+    }
   }
 
   const reveal = () => {
@@ -76,7 +82,7 @@ export default function RevelationPage() {
 
   return (
     <main className="scene-shell flex min-h-[100svh] flex-col">
-      <CinematicBackdrop scene="corridor" dim={done ? 0.62 : 0.4} push={!reduced} />
+      <CinematicBackdrop scene={done ? 'crime-scene' : 'evidence-wall'} dim={done ? 0.62 : 0.4} push={!reduced} />
       <HudBar location="الانكشاف" showArchive={false} />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 py-10">

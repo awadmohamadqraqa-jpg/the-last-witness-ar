@@ -73,9 +73,11 @@ export function SystemOverlay({ event, onDone, reducedFlash = false, reducedMoti
             onClick={onDone}
             aria-hidden="true"
           />
-          {event.id === 'event-3-shadow' && (
+          {/* Every interruption now shows its own room behind the warning,
+              so the escalation is visible, not just read. */}
+          {event.scene && tone !== 'blackout' && (
             <motion.div className="pointer-events-none absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: reducedMotion ? 0.23 : 0.32 }} transition={{ duration: reducedMotion ? 0 : 1.4 }}>
-              <img src={SCENES['ev-camera-frame'].small} alt="" className="h-full w-full object-cover" style={{ filter: 'blur(8px) grayscale(1) brightness(.5)' }} />
+              <img src={SCENES[event.scene ?? 'ev-camera-frame'].small} alt="" className="h-full w-full object-cover" style={{ filter: 'blur(8px) grayscale(1) brightness(.5)' }} />
               <div className="absolute inset-0 bg-ink/55" />
             </motion.div>
           )}

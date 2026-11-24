@@ -4,8 +4,8 @@ import type { EvidenceId, StoryEventId, StoryEvent } from './types'
  * ============================================================
  * CINEMATIC HORROR EVENTS
  * ============================================================
- * Seven scripted beats. They are rare on purpose: one small
- * environmental wrongness, then escalation, then silence.
+ * Nine scripted beats. One small environmental wrongness, then
+ * escalation — screams, a crime scene, a heart that stops — then silence.
  */
 
 export const STORY_EVENTS: StoryEvent[] = [
@@ -24,6 +24,20 @@ export const STORY_EVENTS: StoryEvent[] = [
     sound: 'flicker',
   },
   {
+    id: 'event-8-scream',
+    afterQuestion: 5,
+    scene: 'screaming-figure',
+    title: 'صراخ',
+    lines: [
+      'سُمع صراخ من الجهة الأخرى من الزجاج.',
+      'التسجيل يقول إنك كنت وحدك في الجناح.',
+      'الصوت كان قريبًا جدًا من الميكروفون.',
+    ],
+    duration: 5200,
+    tone: 'danger',
+    sound: 'scream-close',
+  },
+  {
     id: 'event-2-camera',
     afterQuestion: 6,
     scene: 'surveillance',
@@ -38,35 +52,61 @@ export const STORY_EVENTS: StoryEvent[] = [
     afterQuestion: 8,
     scene: 'surveillance',
     title: 'حركة خلف الزجاج',
-    lines: ['ظهر شيء خلف الزجاج المصنفر.', 'ابتعد قبل أن ترفع عينيك.', 'لن تجده الآن.'],
+    lines: [
+      'ظهر شيء خلف الزجاج المصنفر.',
+      'ثم انغلق باب معدني، وخرج صراخ مكتوم من الداخل.',
+      'لن تجده الآن.',
+    ],
     duration: 5600,
     tone: 'danger',
-    sound: 'footsteps',
+    sound: 'door-scream',
   },
   {
     id: 'event-4-motion',
     afterQuestion: 9,
-    scene: 'corridor',
+    scene: 'screaming-figure',
     title: 'رصد حركة',
-    lines: ['تم رصد حركة غير معروفة.', 'غير معروفة.', 'غير معروفة.'],
-    duration: 4800,
-    tone: 'cold',
-    sound: 'glitch',
+    lines: [
+      'تم رصد حركة غير معروفة.',
+      'في المسار الصوتي: نفس مقطوع، قريب من الميكروفون.',
+      'غير معروفة.',
+    ],
+    duration: 5200,
+    tone: 'danger',
+    sound: 'breath-panic',
   },
   {
     id: 'event-5-witness',
     afterQuestion: 12,
     scene: 'door',
     title: 'شاهد إضافي',
-    lines: ['تم اكتشاف شاهد إضافي.', 'عدد الشهود في الجلسة: ٢.', 'أنت أحدهم.'],
+    lines: [
+      'تم اكتشاف شاهد إضافي.',
+      'عدد الشهود في الجلسة: ٢.',
+      'أنت أحدهم.',
+    ],
     duration: 6000,
     tone: 'danger',
-    sound: 'impact',
+    sound: 'sting-crime',
+  },
+  {
+    id: 'event-9-crime-scene',
+    afterQuestion: 11,
+    scene: 'crime-scene',
+    title: 'الغرفة بعد الجلسة',
+    lines: [
+      'أُعيد تشغيل تسجيل من الجلسة السابقة.',
+      'الكرسي مقلوب. الأرض مليئة بالصور. والخط الأبيض لا يزال على البلاط.',
+      'وفي الخلفية: صراخ بعيد، ثم صمت.',
+    ],
+    duration: 5600,
+    tone: 'danger',
+    sound: 'scream-distant',
   },
   {
     id: 'event-6-blackout',
     afterQuestion: 14,
-    scene: 'door',
+    scene: 'crime-scene',
     title: 'انقطاع',
     lines: ['…', '…', 'لم يعد هناك صوت.'],
     duration: 6500,

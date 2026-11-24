@@ -20,6 +20,9 @@ export type SceneKey =
   | 'ev-missing-report'
   | 'ev-camera-frame'
   | 'ev-handwritten'
+  | 'crime-scene'
+  | 'screaming-figure'
+  | 'evidence-wall'
 
 export type EvidenceId =
   | 'old-photo'
@@ -37,6 +40,8 @@ export type StoryEventId =
   | 'event-5-witness'
   | 'event-6-blackout'
   | 'event-7-revelation'
+  | 'event-8-scream'
+  | 'event-9-crime-scene'
 
 export type EndingId = 'forbidden-truth' | 'last-witness' | 'survivor' | 'missing'
 

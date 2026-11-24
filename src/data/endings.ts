@@ -63,7 +63,7 @@ export const ENDINGS: Ending[] = [
     id: 'forbidden-truth',
     title: 'الحقيقة المحظورة',
     latin: 'THE LAST WITNESS',
-    scene: 'surveillance',
+    scene: 'crime-scene',
     hook: 'لم يكن هناك شاهدان. كان هناك ثلاثة.',
     beats: [
       'فتحت كل ما لم يكن مسموحًا فتحه. التسجيل، الملاحظة، صورة الكاميرا. لهذا السبب أنت الوحيد الذي يعرف.',

@@ -41,7 +41,11 @@ export default function ConfrontationPage() {
   const confirm = () => {
     if (!choice || committing) return
     setCommitting(true)
-    audio.play('impact')
+    // Each door into the truth sounds different: you either face it (scream),
+    // leave it (metal), or hear it happen to someone else (distant).
+    if (choice === 'look-mirror') audio.play('scream-close')
+    else if (choice === 'open-door') audio.play('door-scream')
+    else audio.play('sting-crime')
     // The confrontation choice is recorded as the final beat of the record.
     patch({
       confrontationChoice: choice,
