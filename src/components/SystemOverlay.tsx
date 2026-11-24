@@ -67,8 +67,8 @@ export function SystemOverlay({ event, onDone, reducedFlash = false, reducedMoti
           <div
             className={cn(
               'absolute inset-0 cursor-pointer',
-              tone === 'blackout' ? 'bg-ink' : 'bg-ink/92',
-              tone === 'danger' && 'bg-[#0b0406]/95',
+              tone === 'blackout' ? 'bg-ink' : 'bg-ink/88',
+              tone === 'danger' && 'bg-[#0b0406]/82',
             )}
             onClick={onDone}
             aria-hidden="true"
@@ -76,9 +76,14 @@ export function SystemOverlay({ event, onDone, reducedFlash = false, reducedMoti
           {/* Every interruption now shows its own room behind the warning,
               so the escalation is visible, not just read. */}
           {event.scene && tone !== 'blackout' && (
-            <motion.div className="pointer-events-none absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: reducedMotion ? 0.23 : 0.32 }} transition={{ duration: reducedMotion ? 0 : 1.4 }}>
-              <img src={SCENES[event.scene ?? 'ev-camera-frame'].small} alt="" className="h-full w-full object-cover" style={{ filter: 'blur(8px) grayscale(1) brightness(.5)' }} />
-              <div className="absolute inset-0 bg-ink/55" />
+            <motion.div className="pointer-events-none absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: reducedMotion ? 0.4 : 0.62 }} transition={{ duration: reducedMotion ? 0 : 1.4 }}>
+              <img
+                src={SCENES[event.scene ?? 'ev-camera-frame'].small}
+                alt=""
+                className="h-full w-full scale-105 object-cover"
+                style={{ filter: 'blur(5px) grayscale(.85) brightness(.82) contrast(1.05)' }}
+              />
+              <div className="absolute inset-0 bg-[radial-gradient(75%_60%_at_50%_50%,rgba(8,9,12,.72),rgba(8,9,12,.35))]" />
             </motion.div>
           )}
           {tone !== 'blackout' && <div className="layer-grain pointer-events-none absolute inset-0 opacity-25" />}
